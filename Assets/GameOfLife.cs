@@ -72,45 +72,21 @@ public class GameOfLife : ProcessingLite.GP21
     {
         int adjacent = 0;
 
-                if (cells[x + 1, y + 1].alive)
-                {
-                    adjacent++;
-                }
 
-                if (cells[x + 1, y].alive)
+        for (int i = -1; i <= 1; i++)
+        {
+            for (int j = -1; j <= 1; j++)
+            {
+                if (i == 0 && j == 0) 
+                { 
+                    continue;
+                }
+                else if (cells[x + i, y + j].alive)
                 {
                     adjacent++;
                 }
-
-                if (cells[x, y + 1].alive)
-                {
-                    adjacent++;
-                }
-
-                if (cells[x - 1, y - 1].alive)
-                {
-                    adjacent++;
-                }
-
-                if (cells[x - 1, y].alive)
-                {
-                    adjacent++;
-                }
-
-                if (cells[x, y - 1].alive)
-                {
-                    adjacent++;
-                }
-
-                if (cells[x + 1, y - 1].alive)
-                {
-                    adjacent++;
-                }
-
-                if (cells[x - 1, y + 1].alive)
-                {
-                    adjacent++;
-                }
+            }
+        }
 
         return adjacent;
     }
